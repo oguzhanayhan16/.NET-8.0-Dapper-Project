@@ -1,0 +1,190 @@
+﻿
+@{
+    ViewData["Title"] = "PropertySingle";
+    Layout = "~/Views/Shared/DefaultLayout.cshtml";
+}
+
+<header id="site-header" class="fixed-top">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg stroke px-0">
+            <h1>
+                <a class="navbar-brand" href="index.html">
+                    <span class="fa fa-home"></span> Estate sale
+                </a>
+            </h1>
+     
+            <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
+                    data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+                <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav ml-lg-5 mr-auto">
+                    <li class="nav-item @@home__active">
+                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item @@listing__active">
+                        <a class="nav-link" href="listing.html">Listing</a>
+                    </li>
+                    <li class="nav-item dropdown active">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Property <span class="fa fa-angle-down"></span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item active" href="property-single.html">Single property</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown @@pages__active">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Pages <span class="fa fa-angle-down"></span>
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item @@about__active" href="about.html">About us</a>
+                            <a class="dropdown-item @@contact__active" href="contact.html">Contact us</a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="top-quote mt-lg-0">
+                    <a href="#buytheme" class="btn btn-style btn-primary">
+                        <span class="fa fa-home"></span> Add
+                        listiing
+                    </a>
+                </div>
+                <!--/search-right-->
+                <div class="search mx-3">
+                    <input class="search_box" type="checkbox" id="search_box">
+                    <label class="fa fa-search" for="search_box"></label>
+                    <div class="search_form">
+                        <form action="error.html" method="GET">
+                            <input type="text" placeholder="Search"><input type="submit" value="search">
+                        </form>
+                    </div>
+                </div>
+                <!--//search-right-->
+            </div>
+
+            <!-- toggle switch for light and dark theme -->
+            <div class="mobile-position">
+                <nav class="navigation">
+                    <div class="theme-switch-wrapper">
+                        <label class="theme-switch" for="checkbox">
+                            <input type="checkbox" id="checkbox">
+                            <div class="mode-container">
+                                <i class="gg-sun"></i>
+                                <i class="gg-moon"></i>
+                            </div>
+                        </label>
+                    </div>
+                </nav>
+            </div>
+            <!-- //toggle switch for light and dark theme -->
+        </nav>
+    </div>
+</header>
+<!--/header-->
+<section class="w3l-about-breadcrumb">
+    <div class="breadcrumb-bg breadcrumb-bg-about pt-5">
+        <div class="container pt-lg-5 py-3">
+        </div>
+    </div>
+</section>
+<section class="w3l-breadcrumb">
+    <div class="container">
+        <ul class="breadcrumbs-custom-path">
+            <li><a href="index.html">Home</a></li>
+            <li class="active"><span class="fa fa-angle-right mx-2" aria-hidden="true"></span> Property</li>
+            <li class="active"><span class="fa fa-angle-right mx-2" aria-hidden="true"></span> property single</li>
+        </ul>
+    </div>
+</section>
+<!--/blog-post-->
+<section class="w3l-blog post-content py-5">
+    <div class="container py-lg-4 py-md-3 py-2">
+        <div class="inner mb-4">
+            <ul class="blog-single-author-date align-items-center">
+                <li>
+                    <div class="listing-category"><span>@ViewBag.type</span></div>
+                </li>
+                <li><span class="fa fa-clock-o"></span> Yaklaşık @ViewBag.datediff Ay Önce İlana Eklendi.</li>
+                <li><span class="fa fa-eye"></span> 250 Kişi bu ilanı görüntüledi.</li>
+            </ul>
+        </div>
+        <div class="post-content">
+            <h2 class="title-single"> @ViewBag.title1</h2>
+        </div>
+        <div class="blo-singl mb-4">
+            <ul class="blog-single-author-date align-items-center">
+                <li>
+                    <p>@ViewBag.address @ViewBag.district / @ViewBag.city</p>
+                </li>
+                <li><span class="fa fa-bed"></span> @ViewBag.bedCount Yatak Odası</li>
+                <li><span class="fa fa-bath"></span> @ViewBag.bathCount Banyo</li>
+                <li><span class="fa fa-share-square-o"></span> @ViewBag.size metrekare</li>
+            </ul>
+            <ul class="share-post">
+                <a href="#url" class="cost-estate m-o">₺ @ViewBag.price</a>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 w3l-news">
+                <div class="blog-single-post">
+
+
+                    @await Component.InvokeAsync("_PropertySliderComponentPartial", new { id = ViewBag.i })
+
+
+                    <div class="single-post-content">
+                        <h3 class="post-content-title mb-3">İlan Açıklaması</h3>
+                        <p class="mb-4">
+                            @ViewBag.description
+                        </p>
+
+                        <div class="single-bg-white">
+                            <h3 class="post-content-title mb-4">İlan Detayları</h3>
+                            <ul class="details-list">
+                                <li><strong>İlan Id :</strong> @ViewBag.produtcId </li>
+                                <li><strong>Metrekate :</strong> @ViewBag.size </li>
+                                <li><strong>Oda Sayısı :</strong> @ViewBag.roomCount </li>
+                                <li><strong>Yatak Odası :</strong> @ViewBag.bedCount </li>
+                                <li><strong>Banyo Sayısı :</strong> @ViewBag.bathCount </li>
+                                <li><strong>Exterior material :</strong> Brick </li>
+                                <li><strong>Yapı Türü :</strong> Beton </li>
+                                <li><strong>Garaj Sayısı :</strong> @ViewBag.garageCount </li>
+                                <li><strong>Garages :</strong> 15 </li>
+                                <li><strong>Fiyat :</strong> @ViewBag.price ₺ </li>
+                                <li><strong>Yapım Yılı :</strong> @ViewBag.buildYear </li>
+                                <li><strong>İlan Tarihi :</strong> @ViewBag.date.ToString("dd-MMM-yyyy") </li>
+                            </ul>
+                        </div>
+
+                        @await Component.InvokeAsync("_PropertyAmenityStatusTrueComponentPartial")
+
+                    </div>
+
+                    <div class="single-bg-white">
+                        <h3 class="post-content-title mb-4">Lokasyon</h3>
+                        <div class="agent-map">
+                            <iframe src="@ViewBag.location"></iframe>
+                        </div>
+                    </div>
+
+
+
+                    <div class="single-bg-white mb-0">
+                        <h3 class="post-content-title mb-4">Ev Tanıtım Videosu</h3>
+                        <div class="post-content">
+                            <iframe src="@ViewBag.videoUrl" frameborder="0"
+                                    allowfullscreen=""></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @await Component.InvokeAsync("_PropertyAppUserComponentPartial")
+
+        </div>
+    </div>
+</section>
