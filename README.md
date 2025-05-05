@@ -1,4 +1,4 @@
-Real Estate Listing API (.NET)
+🏠 Real Estate Listing API (.NET)
 This is a Real Estate Listing API developed using ASP.NET Core. The system is designed to manage real estate listings including properties for sale and rent. It provides endpoints for listing, creating, updating, and deleting properties. The architecture is clean, modular, and suitable for integration with any frontend (web/mobile).
 
 🚀 Features
@@ -15,7 +15,7 @@ RESTful API design
 
 Scalable and clean architecture
 
-Optimized data access using Dapper for specific queries
+Optimized data access using Dapper for high-performance queries
 
 🛠️ Technologies Used
 
@@ -23,11 +23,9 @@ ASP.NET Core Web API
 
 Entity Framework Core
 
-Dapper (for lightweight and performant data access)
+Dapper
 
 SQL Server (or PostgreSQL, SQLite)
-
-JWT Authentication
 
 AutoMapper
 
